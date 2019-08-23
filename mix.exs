@@ -3,7 +3,7 @@ defmodule RedixPoolboy.Mixfile do
 
   def project do
     [app: :redix_poolboy,
-     version: "0.0.1",
+     version: "0.0.2",
      elixir: "~> 1.5",
      description: description(),
      package: package(),
@@ -52,9 +52,10 @@ defmodule RedixPoolboy.Mixfile do
   defp deps do
     [
       {:poolboy, "~> 1.5"},
-      {:redix, "~> 0.6.1"},
-      {:earmark, "~> 0.1", only: :dev},
-      {:ex_doc, "~> 0.11", only: :dev}
+      {:redix, "~> 0.10.2"},
+      {:earmark, "~> 1.3", only: :dev},
+      # redix already pulls in ex_doc
+      # {:ex_doc, "~> 0.11", only: :dev}
     ]
   end
 end
