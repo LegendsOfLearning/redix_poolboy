@@ -30,6 +30,7 @@ defmodule RedixPoolboy.Worker do
     @doc """
     Using config `redix_poolboy` to connect to redis server via `Redix`
     """
+    # [Hosh] TODO: configure this with reconnect
     def connect() do
       connection_string = Config.get(:connection_string)
       client = if connection_string do
@@ -41,7 +42,7 @@ defmodule RedixPoolboy.Worker do
         port = Config.get(:port, 6379)
         password = Config.get(:password, nil)
         database = Config.get(:db, 0)
-        reconnect = Config.get(:reconnect, :no_reconnect)
+        _reconnect = Config.get(:reconnect, :no_reconnect)
         {:ok, client} = Redix.start_link(host: host, port: port, password: password, database: database)
 
         client
